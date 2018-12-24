@@ -22,7 +22,7 @@ See [RELEASENOTES.md](https://github.com/verbotenezone/WESPOTA/blob/development/
 In addition to the [release webpage](https://github.com/verbotenezone/WESPOTA/releases/latest) the binaries can also be OTA downloaded from https://wespota.verbotene.zone/release/
 
 ### Development
-[![Dev Version](https://img.shields.io/badge/development%20version-6.4.0.x-blue.svg)](https://github.com/verbotenezone/WESPOTA)
+[![Dev Version](https://img.shields.io/badge/development%20version-7.0.0.x-blue.svg)](https://github.com/verbotenezone/WESPOTA)
 [![Download Dev](https://img.shields.io/badge/download-development-yellow.svg)](https://wespota.verbotene.zone/)
 [![Build Status](https://img.shields.io/travis/verbotenezone/WESPOTA.svg)](https://travis-ci.org/verbotenezone/WESPOTA)
 
