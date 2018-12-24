@@ -1,7 +1,7 @@
 /*
-  my_user_config.h - user specific configuration for Sonoff-Tasmota
+  my_user_config.h - user specific configuration for WESPOTA
 
-  Copyright (C) 2018  Theo Arends
+  Copyright (C) 2018  Theo Arends and Oliver Welter
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -44,13 +44,13 @@
 \*********************************************************************************************/
 
 // -- Master parameter control --------------------
-#define CFG_HOLDER             4617              // [Reset 1] Change this value (max 32000) to load SECTION1 configuration parameters to flash
+#define CFG_HOLDER             1000              // [Reset 1] Change this value (max 32000) to load SECTION1 configuration parameters to flash
 
 // -- Project -------------------------------------
-#define PROJECT                "sonoff"          // PROJECT is used as the default topic delimiter
+#define PROJECT                "wespota"          // PROJECT is used as the default topic delimiter
 
 // If not selected the default will be SONOFF_BASIC
-//#define MODULE                 SONOFF_BASIC      // [Module] Select default model from sonoff_template.h
+//#define MODULE                 SONOFF_BASIC      // [Module] Select default model from wespota_template.h
 
 #define SAVE_DATA              1                 // [SaveData] Save changed parameters to Flash (0 = disable, 1 - 3600 seconds)
 #define SAVE_STATE             1                 // [SetOption0] Save changed power state to Flash (0 = disable, 1 = enable)
@@ -81,7 +81,7 @@
 #define WEB_LOG_LEVEL          LOG_LEVEL_INFO    // [WebLog] (LOG_LEVEL_NONE, LOG_LEVEL_ERROR, LOG_LEVEL_INFO, LOG_LEVEL_DEBUG, LOG_LEVEL_DEBUG_MORE)
 
 // -- Ota -----------------------------------------
-#define OTA_URL                "http://thehackbox.org/tasmota/release/sonoff.bin"  // [OtaUrl]
+#define OTA_URL                "https://wespota.verbotene.zone/release/wespota.bin"  // [OtaUrl]
 
 // -- MQTT ----------------------------------------
 #define MQTT_USE               1                 // [SetOption3] Select default MQTT use (0 = Off, 1 = On)
@@ -114,7 +114,7 @@
                                                  //   May be named the same as PUB_PREFIX
 // %topic% token options (also ButtonTopic and SwitchTopic)
 #define MQTT_TOPIC             PROJECT           // [Topic] (unique) MQTT device topic, set to 'PROJECT "_%06X"' for unique topic including device MAC address
-#define MQTT_GRPTOPIC          "sonoffs"         // [GroupTopic] MQTT Group topic
+#define MQTT_GRPTOPIC          "wespotas"        // [GroupTopic] MQTT Group topic
 #define MQTT_BUTTON_TOPIC      "0"               // [ButtonTopic] MQTT button topic, "0" = same as MQTT_TOPIC, set to 'PROJECT "_BTN_%06X"' for unique topic including device MAC address
 #define MQTT_SWITCH_TOPIC      "0"               // [SwitchTopic] MQTT button topic, "0" = same as MQTT_TOPIC, set to 'PROJECT "_SW_%06X"' for unique topic including device MAC address
 #define MQTT_CLIENT_ID         "DVES_%06X"       // [MqttClient] Also fall back topic using Chip Id = last 6 characters of MAC address
@@ -131,7 +131,7 @@
 // -- HTTP ----------------------------------------
 #define WEB_SERVER             2                 // [WebServer] Web server (0 = Off, 1 = Start as User, 2 = Start as Admin)
 #define WEB_PASSWORD           ""                // [WebPassword] Web server Admin mode Password for WEB_USERNAME (empty string = Disable)
-#define FRIENDLY_NAME          "Sonoff"          // [FriendlyName] Friendlyname up to 32 characters used by webpages and Alexa
+#define FRIENDLY_NAME          "WESPOTA"          // [FriendlyName] Friendlyname up to 32 characters used by webpages and Alexa
 #define EMULATION              EMUL_NONE         // [Emulation] Select Belkin WeMo (single relay/light) or Hue Bridge emulation (multi relay/light) (EMUL_NONE, EMUL_WEMO or EMUL_HUE)
 
 // -- Time - Up to three NTP servers in your region
@@ -416,16 +416,16 @@
 
 /*********************************************************************************************\
  * Optional firmware configurations
- * Select none or just one for optional features and sensors as configured in sonoff_post.h
+ * Select none or just one for optional features and sensors as configured in wespota_post.h
  * See RELEASENOTES.md for selected features
 \*********************************************************************************************/
 
-//#define USE_CLASSIC                              // Create sonoff-classic with initial configuration tools WPS, SmartConfig and WifiManager
-//#define USE_BASIC                                // Create sonoff-basic with no sensors
-//#define USE_SENSORS                              // Create sonoff-sensors with useful sensors enabled
-//#define USE_KNX_NO_EMULATION                     // Create sonoff-knx with KNX but without Emulation
-//#define USE_DISPLAYS                             // Create sonoff-display with display drivers enabled
-//#define BE_MINIMAL                               // Create sonoff-minimal as intermediate firmware for OTA-MAGIC
+//#define USE_CLASSIC                              // Create wespota-classic with initial configuration tools WPS, SmartConfig and WifiManager
+//#define USE_BASIC                                // Create wespota-basic with no sensors
+//#define USE_SENSORS                              // Create wespota-sensors with useful sensors enabled
+//#define USE_KNX_NO_EMULATION                     // Create wespota-knx with KNX but without Emulation
+//#define USE_DISPLAYS                             // Create wespota-display with display drivers enabled
+//#define BE_MINIMAL                               // Create wespota-minimal as intermediate firmware for OTA-MAGIC
 
 /*********************************************************************************************\
  * No user configurable items below
