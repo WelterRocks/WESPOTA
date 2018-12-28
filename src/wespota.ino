@@ -27,15 +27,15 @@
 
 // Location specific includes
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
-#include "wespota_version.h"                 // WESPOTA version information
-#include "wespota.h"                         // Enumeration used in my_user_config.h
-#include "my_user_config.h"                 // Fixed user configurable options
+#include "include/wespota_version.h"                 // WESPOTA version information
+#include "include/wespota.h"                         // Enumeration used in my_user_config.h
+#include "include/config/my_user_config.h"                 // Fixed user configurable options
 #ifdef USE_CONFIG_OVERRIDE
-  #include "user_config_override.h"         // Configuration overrides for my_user_config.h
+  #include "include/config/user_config_override.h"         // Configuration overrides for my_user_config.h
 #endif
-#include "wespota_post.h"                    // Configuration overrides for all previous includes
-#include "i18n.h"                           // Language support configured by my_user_config.h
-#include "wespota_template.h"                // Hardware configuration
+#include "include/wespota_post.h"                    // Configuration overrides for all previous includes
+#include "include/i18n.h"                           // Language support configured by my_user_config.h
+#include "include/wespota_template.h"                // Hardware configuration
 
 #ifdef ARDUINO_ESP8266_RELEASE_2_4_0
 #include "lwip/init.h"
@@ -66,7 +66,7 @@
 #endif  // USE_SPI
 
 // Structs
-#include "settings.h"
+#include "include/wespota_settings.h"
 
 enum TasmotaCommands {
   CMND_BACKLOG, CMND_DELAY, CMND_POWER, CMND_FANSPEED, CMND_STATUS, CMND_STATE, CMND_POWERONSTATE, CMND_PULSETIME,
