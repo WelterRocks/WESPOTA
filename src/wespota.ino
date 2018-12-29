@@ -29,12 +29,12 @@
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
 #include "include/wespota_version.h"                 // WESPOTA version information
 #include "include/wespota.h"                         // Enumeration used in my_user_config.h
-#include "include/config/my_user_config.h"                 // Fixed user configurable options
-#ifdef USE_CONFIG_OVERRIDE
-  #include "include/config/user_config_override.h"         // Configuration overrides for my_user_config.h
+#include "include/config/wespota_config.h"           // WESPOTA configuration
+#ifdef HAVE_ALTERNATE_CONFIG
+  #include "include/config/wespota_alternate_config.h"         // Configuration overrides wespota_config.h
 #endif
 #include "include/wespota_post.h"                    // Configuration overrides for all previous includes
-#include "include/i18n.h"                           // Language support configured by my_user_config.h
+#include "include/wespota_i18n.h"                           // Language support configured by my_user_config.h
 #include "include/wespota_template.h"                // Hardware configuration
 
 #ifdef ARDUINO_ESP8266_RELEASE_2_4_0
@@ -68,7 +68,7 @@
 // Structs
 #include "include/wespota_settings.h"
 
-enum TasmotaCommands {
+enum WespotaCommands {
   CMND_BACKLOG, CMND_DELAY, CMND_POWER, CMND_FANSPEED, CMND_STATUS, CMND_STATE, CMND_POWERONSTATE, CMND_PULSETIME,
   CMND_BLINKTIME, CMND_BLINKCOUNT, CMND_SENSOR, CMND_SAVEDATA, CMND_SETOPTION, CMND_TEMPERATURE_RESOLUTION, CMND_HUMIDITY_RESOLUTION,
   CMND_PRESSURE_RESOLUTION, CMND_POWER_RESOLUTION, CMND_VOLTAGE_RESOLUTION, CMND_FREQUENCY_RESOLUTION, CMND_CURRENT_RESOLUTION, CMND_ENERGY_RESOLUTION, CMND_WEIGHT_RESOLUTION,
@@ -78,7 +78,8 @@ enum TasmotaCommands {
   CMND_WIFICONFIG, CMND_FRIENDLYNAME, CMND_SWITCHMODE,
   CMND_TELEPERIOD, CMND_RESTART, CMND_RESET, CMND_TIMEZONE, CMND_TIMESTD, CMND_TIMEDST, CMND_ALTITUDE, CMND_LEDPOWER, CMND_LEDSTATE,
   CMND_I2CSCAN, CMND_SERIALSEND, CMND_BAUDRATE, CMND_SERIALDELIMITER, CMND_DRIVER };
-const char kTasmotaCommands[] PROGMEM =
+
+const char kWespotaCommands[] PROGMEM =
   D_CMND_BACKLOG "|" D_CMND_DELAY "|" D_CMND_POWER "|" D_CMND_FANSPEED "|" D_CMND_STATUS "|" D_CMND_STATE "|"  D_CMND_POWERONSTATE "|" D_CMND_PULSETIME "|"
   D_CMND_BLINKTIME "|" D_CMND_BLINKCOUNT "|" D_CMND_SENSOR "|" D_CMND_SAVEDATA "|" D_CMND_SETOPTION "|" D_CMND_TEMPERATURE_RESOLUTION "|" D_CMND_HUMIDITY_RESOLUTION "|"
   D_CMND_PRESSURE_RESOLUTION "|" D_CMND_POWER_RESOLUTION "|" D_CMND_VOLTAGE_RESOLUTION "|" D_CMND_FREQUENCY_RESOLUTION "|" D_CMND_CURRENT_RESOLUTION "|" D_CMND_ENERGY_RESOLUTION "|" D_CMND_WEIGHT_RESOLUTION "|"
@@ -527,7 +528,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
 //    snprintf_P(log_data, sizeof(log_data), PSTR("RSLT: Payload %d, Payload16 %d"), payload, payload16);
 //    AddLog(LOG_LEVEL_DEBUG);
 
-    int command_code = GetCommandCode(command, sizeof(command), type, kTasmotaCommands);
+    int command_code = GetCommandCode(command, sizeof(command), type, kWespotaCommands);
     if (-1 == command_code) {
       if (!XdrvCommand(grpflg, type, index, dataBuf, data_len, payload, payload16)) {
         type = NULL;  // Unknown command

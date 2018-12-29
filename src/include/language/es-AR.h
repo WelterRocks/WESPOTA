@@ -1,5 +1,5 @@
 /*
-  es-AR.h - localization for Spanish - Argentina for Sonoff-Tasmota
+  es-AR.h - localization for Spanish - Argentina for WESPOTA
 
   Copyright (C) 2018  Adrian Scillato
 

@@ -1,5 +1,5 @@
 /*
-  zh-CN.h - localization for Chinese (Simplified) - China for Sonoff-Tasmota
+  zh-CN.h - localization for Chinese (Simplified) - China for WESPOTA
 
   Copyright (C) 2018  Theo Arends (translated by killadm)
 

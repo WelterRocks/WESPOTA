@@ -1,5 +1,5 @@
 /*
-  el-GR.h - localization for Greek - Greece for Sonoff-Tasmota
+  el-GR.h - localization for Greek - Greece for WESPOTA
 
   Copyright (C) 2018  Theo Arends (translated by Nick Galfas)
 

@@ -1,5 +1,5 @@
 /*
-  en-GB.h - localization for English - United Kingdom for Sonoff-Tasmota
+  en-GB.h - localization for English - United Kingdom for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

@@ -1,5 +1,5 @@
 /*
-  support_features.ino - feature support for Sonoff-Tasmota
+  wespota_features.ino - feature support for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

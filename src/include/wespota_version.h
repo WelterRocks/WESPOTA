@@ -20,10 +20,16 @@
 #ifndef _WESPOTA_VERSION_H_
 #define _WESPOTA_VERSION_H_
 
-#define VERSION            0x07000001
+#define VERSION            0x07000003
 
-#define D_PROGRAMNAME      "WESPOTA"
-#define D_AUTHOR           "Theo Arends and Oliver Welter"
-#define D_WEBLINK          "https://github.com/verbotenezone/WESPOTA"
+#define D_PROGRAMNAME        "WESPOTA"
+#define D_AUTHOR             "Oliver Welter"
+#define D_WEBLINK            "https://github.com/verbotenezone/WESPOTA"
 
-#endif  // _SONOFF_VERSION_H_
+// WESPOTA Origin
+#define D_FORKOF_PROGRAMNAME "Sonoff-Tasmota"
+#define D_FORKOF_AUTHOR	     "Theo Arends"
+#define D_FORKOF_WEBLINK     "https://github.com/arendst/Sonoff-Tasmota"
+#define D_FORKOF_DATE        "2018-12-24"
+
+#endif  // _WESPOTA_VERSION_H_

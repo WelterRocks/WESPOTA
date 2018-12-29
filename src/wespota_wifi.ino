@@ -1,5 +1,5 @@
 /*
-  support_wifi.ino - wifi support for Sonoff-Tasmota
+  wespota_wifi.ino - wifi support for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

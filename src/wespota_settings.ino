@@ -1,5 +1,5 @@
 /*
-  settings.ino - user settings for Sonoff-Tasmota
+  wespota_settings.ino - user settings for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

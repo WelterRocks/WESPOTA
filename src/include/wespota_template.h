@@ -1525,4 +1525,4 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
 
 */
 
-#endif  // _SONOFF_TEMPLATE_H_
+#endif  // _WESPOTA_TEMPLATE_H_

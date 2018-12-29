@@ -1,5 +1,5 @@
 /*
-  settings.h - setting variables for Sonoff-Tasmota
+  wespota_settings.h - setting variables for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 
@@ -425,4 +425,4 @@ typedef union {
   ADC_MODE(ADC_VCC);                       // Set ADC input for Power Supply Voltage usage
 #endif
 
-#endif  // _SETTINGS_H_
+#endif  // _WESPOTA_SETTINGS_H_

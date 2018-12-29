@@ -433,4 +433,4 @@ void KNX_CB_Action(message_t const &msg, void *arg);
 #undef USE_MQTT_TLS_CA_CERT
 #endif
 
-#endif  // _SONOFF_POST_H_
+#endif  // _WESPOTA_POST_H_

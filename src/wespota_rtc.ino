@@ -1,5 +1,5 @@
 /*
-  support_rtc.ino - Real Time Clock support for Sonoff-Tasmota
+  wespota_rtc.ino - Real Time Clock support for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

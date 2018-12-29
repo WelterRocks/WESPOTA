@@ -7,7 +7,7 @@
 .piolibdeps
 .clang_complete
 .gcc-flags.json
-src/user_config_override.h
+src/include/config/wespota_alternate_config.h
 build
 
 ## Visual Studio Code specific ######
@@ -16,5 +16,8 @@ build
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 
-## Joe backup files ######
+## Object files ######
+*.o
+
+## Editor backup files ######
 *~

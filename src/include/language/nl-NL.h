@@ -1,5 +1,5 @@
 /*
-  nl-NL.h - localization for Dutch - Nederland for Sonoff-Tasmota
+  nl-NL.h - localization for Dutch - Nederland for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

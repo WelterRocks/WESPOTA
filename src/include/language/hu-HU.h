@@ -1,5 +1,5 @@
 /*
-  hu-HU.h - localization for Hungarian in Hungary for Sonoff-Tasmota
+  hu-HU.h - localization for Hungarian in Hungary for WESPOTA
 
   Copyright (C) 2018  Theo Arends
 

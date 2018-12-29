@@ -1,5 +1,5 @@
 /*
-  uk-UK.h - localization for Ukrainian - Ukrain for Sonoff-Tasmota
+  uk-UK.h - localization for Ukrainian - Ukrain for WESPOTA
 
   Copyright (C) 2018  Theo Arends / vadym-adik
 

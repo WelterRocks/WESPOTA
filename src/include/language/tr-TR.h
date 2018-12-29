@@ -1,5 +1,5 @@
 /*
-  tr-TR.h - localization for Turkish - Turkey for Sonoff-Tasmota
+  tr-TR.h - localization for Turkish - Turkey for WESPOTA
 
   Copyright (C) 2018  Ali Sait Teke and Theo Arends
 

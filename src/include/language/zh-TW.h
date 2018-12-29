@@ -1,5 +1,5 @@
 /*
-  zh-TW.h - localization for Chinese (Traditional) - Taiwan for Sonoff-Tasmota
+  zh-TW.h - localization for Chinese (Traditional) - Taiwan for WESPOTA
 
   Copyright (C) 2018  Theo Arends (translated by dannydu)
 

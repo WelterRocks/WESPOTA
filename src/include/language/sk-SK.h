@@ -1,5 +1,5 @@
 /*
-  sk-SK.h - localization for Slovak with diacritics - Slovak for Sonoff-Tasmota
+  sk-SK.h - localization for Slovak with diacritics - Slovak for WESPOTA
 
   Copyright (C) 2018  Vladimír Jendroľ
 

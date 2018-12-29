@@ -1,5 +1,5 @@
 /*
-  pl-PL-d.h - localization for Polish with diacritics - Poland for Sonoff-Tasmota
+  pl-PL-d.h - localization for Polish with diacritics - Poland for WESPOTA
 
   Copyright (C) 2018  Theo Arends (translated by roblad - Robert L., upgraded by R. Turala)
 

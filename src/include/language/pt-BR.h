@@ -1,5 +1,5 @@
 /*
-  pt-BR.h - localization for Portuguese - Brazil for Sonoff-Tasmota
+  pt-BR.h - localization for Portuguese - Brazil for WESPOTA
 
   Copyright (C) 2018  Fabiano Bovo
 

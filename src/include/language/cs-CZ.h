@@ -1,5 +1,5 @@
 /*
-  cs-CZ.h - localization for Czech with diacritics - Czech for Sonoff-Tasmota
+  cs-CZ.h - localization for Czech with diacritics - Czech for WESPOTA
 
   Copyright (C) 2018  Vladimír Synek
 
