@@ -7,26 +7,26 @@ While Sonoff-Tasmota is focused vertically to support special devices, WESPOTA i
 Sonoff-Tasmota is used as code base, while I am still a contributor of the project. But with WESPOTA, we can do things, that would normally violate the Sonoff-Tasmota coding policies, set by its founder and core developers.
 Therefore WESPOTA exists, where for e.g. other devices are supported natively, like LC-Technology boards...
 
-[![GitHub version](https://img.shields.io/github/release/verbotenezone/WESPOTA.svg)](https://github.com/verbotenezone/WESPOTA/releases/latest)
-[![GitHub download](https://img.shields.io/github/downloads/verbotenezone/WESPOTA/total.svg)](https://github.com/verbotenezone/WESPOTA/releases/latest)
-[![License](https://img.shields.io/github/license/verbotenezone/WESPOTA.svg)](https://github.com/verbotenezone/WESPOTA/blob/development/LICENSE.txt)
+[![GitHub version](https://img.shields.io/github/release/VerboteneZone/WESPOTA.svg)](https://github.com/VerboteneZone/WESPOTA/releases/latest)
+[![GitHub download](https://img.shields.io/github/downloads/VerboteneZone/WESPOTA/total.svg)](https://github.com/VerboteneZone/WESPOTA/releases/latest)
+[![License](https://img.shields.io/github/license/VerboteneZone/WESPOTA.svg)](https://github.com/VerboteneZone/WESPOTA/blob/development/LICENSE.txt)
 
 If you like **WESPOTA**, give it a star, or fork it and contribute!
 
-[![GitHub stars](https://img.shields.io/github/stars/verbotenezone/WESPOTA.svg?style=social&label=Star)](https://github.com/verbotenezone/WESPOTA/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/verbotenezone/WESPOTA.svg?style=social&label=Fork)](https://github.com/verbotenezone/WESPOTA/network)
+[![GitHub stars](https://img.shields.io/github/stars/VerboteneZone/WESPOTA.svg?style=social&label=Star)](https://github.com/VerboteneZone/WESPOTA/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/VerboteneZone/WESPOTA.svg?style=social&label=Fork)](https://github.com/VerboteneZone/WESPOTA/network)
 [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://paypal.me/wespota)
 
-See [RELEASENOTES.md](https://github.com/verbotenezone/WESPOTA/blob/development/RELEASENOTES.md) for release information.
+See [RELEASENOTES.md](https://github.com/VerboteneZone/WESPOTA/blob/development/RELEASENOTES.md) for release information.
 
-In addition to the [release webpage](https://github.com/verbotenezone/WESPOTA/releases/latest) the binaries can also be OTA downloaded from https://wespota.verbotene.zone/release/
+In addition to the [release webpage](https://github.com/VerboteneZone/WESPOTA/releases/latest) the binaries can also be OTA downloaded from https://wespota.verbotene.zone/release/
 
 ### Development
-[![Dev Version](https://img.shields.io/badge/development%20version-7.0.0.x-blue.svg)](https://github.com/verbotenezone/WESPOTA)
+[![Dev Version](https://img.shields.io/badge/development%20version-7.0.0.x-blue.svg)](https://github.com/VerboteneZone/WESPOTA)
 [![Download Dev](https://img.shields.io/badge/download-development-yellow.svg)](https://wespota.verbotene.zone/)
-[![Build Status](https://img.shields.io/travis/verbotenezone/WESPOTA.svg)](https://travis-ci.org/VerboteneZone/WESPOTA)
+[![Build Status](https://img.shields.io/travis/VerboteneZone/WESPOTA.svg)](https://travis-ci.org/VerboteneZone/WESPOTA)
 
-See [RELEASENOTES.md](https://github.com/verbotenezone/WESPOTA/blob/development/RELEASENOTES.md) for release information and [src/_changelog.ino](https://github.com/verbotenezone/WESPOTA/blob/development/src/_changelog.ino) for detailed change information.
+See [RELEASENOTES.md](https://github.com/VerboteneZone/WESPOTA/blob/development/RELEASENOTES.md) for release information and [src/_changelog.ino](https://github.com/VerboteneZone/WESPOTA/blob/development/src/_changelog.ino) for detailed change information.
 
 The development codebase is checked hourly for changes and if new commits have been merged and compile successfuly they will be posted at https://wespota.verbotene.zone/ (this web address can be used for OTA too). It is important to note that these are based on the current development codebase and it is not recommended to flash it to devices used in production or which are hard to reach in the event that you need to manually flash the device if OTA failed. The last compiled commit number is also posted on the same page along with the current build status (if a firmware rebuild is in progress).
 
@@ -38,13 +38,13 @@ An ESP or firmware compatible device is not a toy. It may use Mains AC so there 
 We don't take any responsibility nor liability for using this software nor for the installation or any tips, advice, videos, etc. given by any member of this site or any related site.
 
 ### Quick Install
-Download one of the released binaries from https://github.com/verbotenezone/WESPOTA/releases and flash it to your hardware as documented in the wiki.
+Download one of the released binaries from https://github.com/VerboteneZone/WESPOTA/releases and flash it to your hardware as documented in the wiki.
 
 ### Important User Compilation Information
 If you want to compile WESPOTA yourself keep in mind the following:
 
-- Only Flash Mode **DOUT** is supported, for now. Do not use Flash Mode DIO / QIO / QOUT as it might seem to brick your device. See [Wiki](https://github.com/verbotenezone/WESPOTA/wiki/WESPOTA-Tips) for background information.
-- WESPOTA uses a 1M linker script WITHOUT spiffs **1M (no SPIFFS)** for optimal code space. If you compile using ESP/Arduino library 2.3.0 then download the provided new linker script to your Arduino IDE or Platformio base folder. Later version of ESP/Arduino library already contain the correct linker script. See [Wiki > Prerequisite](https://github.com/verbotenezone/WESPOTA/wiki/Prerequisite).
+- Only Flash Mode **DOUT** is supported, for now. Do not use Flash Mode DIO / QIO / QOUT as it might seem to brick your device. See [Wiki](https://github.com/VerboteneZone/WESPOTA/wiki/WESPOTA-Tips) for background information.
+- WESPOTA uses a 1M linker script WITHOUT spiffs **1M (no SPIFFS)** for optimal code space. If you compile using ESP/Arduino library 2.3.0 then download the provided new linker script to your Arduino IDE or Platformio base folder. Later version of ESP/Arduino library already contain the correct linker script. See [Wiki > Prerequisite](https://github.com/VerboteneZone/WESPOTA/wiki/Prerequisite).
 - To make compile time changes to WESPOTA it can use the ``user_config_override.h`` file. It assures keeping your settings when you download and compile a new version. To use ``user_config.override.h`` you will have to make a copy of the provided ``user_config.override_sample.h`` file and add your setting overrides. To enable the override file you will need to use a compile define as documented in the ``user_config_override_sample.h`` file.
 
 ### Version Information
@@ -54,7 +54,7 @@ If you want to compile WESPOTA yourself keep in mind the following:
 
 ### Support Information
 
-See [Wiki](https://github.com/verbotenezone/WESPOTA/wiki) for more information.<br />
+See [Wiki](https://github.com/VerboteneZone/WESPOTA/wiki) for more information.<br />
 See [Community](https://groups.google.com/d/forum/sonoffusers) for forum.<br />
 
 The following devices are supported:
@@ -68,7 +68,7 @@ The following devices are supported:
 - [iTead Sonoff 4CH (R2)](https://www.itead.cc/smart-home/sonoff-4ch.html)
 - [iTead Sonoff 4CH Pro (R2)](https://www.itead.cc/smart-home/sonoff-4ch-pro.html)
 - [iTead Sonoff S20 Smart Socket](https://www.itead.cc/smart-socket.html)
-- [Sonoff S22 Smart Socket](https://github.com/verbotenezone/WESPOTA/issues/627)
+- [Sonoff S22 Smart Socket](https://github.com/VerboteneZone/WESPOTA/issues/627)
 - [iTead Sonoff S26 Smart Socket](https://www.itead.cc/sonoff-s26-wifi-smart-plug.html)
 - [iTead Sonoff S31 Smart Socket with Energy Monitoring](https://www.itead.cc/sonoff-s31.html)
 - [iTead Slampher](https://www.itead.cc/slampher.html)
@@ -86,14 +86,14 @@ The following devices are supported:
 - [Electrodragon IoT Relay Board](http://www.electrodragon.com/product/wifi-iot-relay-board-based-esp8266/)
 - AI Light or any my9291 compatible RGBW LED bulb
 - H801 PWM LED controller
-- [MagicHome PWM LED controller](https://github.com/verbotenezone/WESPOTA/wiki/MagicHome-LED-strip-controller)
+- [MagicHome PWM LED controller](https://github.com/VerboteneZone/WESPOTA/wiki/MagicHome-LED-strip-controller)
 - AriLux AL-LC01, AL-LC06 and AL-LC11 PWM LED controller
 - [Supla device - Espablo-inCan mod. for electrical Installation box](https://forum.supla.org/viewtopic.php?f=33&t=2188)
 - [BlitzWolf BW-SHP2 Smart Socket with Energy Monitoring](https://www.banggood.com/BlitzWolf-BW-SHP2-Smart-WIFI-Socket-EU-Plug-220V-16A-Work-with-Amazon-Alexa-Google-Assistant-p-1292899.html)
 - [Luani HVIO board](https://luani.de/projekte/esp8266-hvio/)
 - [Wemos D1 mini](https://wiki.wemos.cc/products:d1:d1_mini)
-- [HuaFan Smart Socket](https://github.com/verbotenezone/WESPOTA/wiki/HuaFan-Smart-Socket)
-- [Hyleton-313 Smart Plug](https://github.com/verbotenezone/WESPOTA/wiki/Hyleton-313-Smart-Plug)
+- [HuaFan Smart Socket](https://github.com/VerboteneZone/WESPOTA/wiki/HuaFan-Smart-Socket)
+- [Hyleton-313 Smart Plug](https://github.com/VerboteneZone/WESPOTA/wiki/Hyleton-313-Smart-Plug)
 - [Allterco Shelly 1](https://shelly.cloud/shelly1-open-source/)
 - [Allterco Shelly 2 with Energy Monitoring](https://shelly.cloud/shelly2/)
 - NodeMcu and Ledunia
