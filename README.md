@@ -24,7 +24,7 @@ In addition to the [release webpage](https://github.com/verbotenezone/WESPOTA/re
 ### Development
 [![Dev Version](https://img.shields.io/badge/development%20version-7.0.0.x-blue.svg)](https://github.com/verbotenezone/WESPOTA)
 [![Download Dev](https://img.shields.io/badge/download-development-yellow.svg)](https://wespota.verbotene.zone/)
-[![Build Status](https://img.shields.io/travis/verbotenezone/WESPOTA.svg)](https://travis-ci.org/verbotenezone/WESPOTA)
+[![Build Status](https://img.shields.io/travis/verbotenezone/WESPOTA.svg)](https://travis-ci.org/VerboteneZone/WESPOTA)
 
 See [RELEASENOTES.md](https://github.com/verbotenezone/WESPOTA/blob/development/RELEASENOTES.md) for release information and [src/_changelog.ino](https://github.com/verbotenezone/WESPOTA/blob/development/src/_changelog.ino) for detailed change information.
 
