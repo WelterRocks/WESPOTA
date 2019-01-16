@@ -28,11 +28,17 @@
 
 #define XDRV_20                20
 
-const uint8_t LCTSeqBase[5]  = { 0xA0, 0x00, 0x00, 0xA0, 0x0A };
+// const uint8_t LCTSeqBase[5]  = { 0xA0, 0x00, 0x00, 0xA0, 0x0A };
 
 uint8_t LCTNumDevs = 0;
 uint32_t LCTBaudrate = 0;
 boolean LCTInitialized = false;
+
+// state variables for the nonblocking delay handler
+power_t target_state = 0;
+uint8_t next_update =0;
+uint8_t fast_update_count =0;
+
 
 /*********************************************************************************************\
  * Internal Functions
@@ -40,11 +46,83 @@ boolean LCTInitialized = false;
 
 boolean LCTSetRelay(void)
 {
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTSetRelay entry"));
+  // AddLog(LOG_LEVEL_DEBUG_MORE);  
   power_t rpower = XdrvMailbox.index;
 
   return LCTSetStates(rpower);
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTSetRelay exit"));
+  // AddLog(LOG_LEVEL_DEBUG_MORE);
 }
 
+boolean LCTSetStates(power_t new_state)
+{
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTSetStates entry - new_state %04x"), new_state);
+  // AddLog(LOG_LEVEL_DEBUG_MORE);
+  // find out which state may have changed
+  power_t changed = target_state xor new_state;
+  if (changed ) {
+    fast_update_count = LCTNumDevs * LCT_FAST_REPEAT ; // repeat every command before falling to slow mode
+  }
+  target_state = new_state;
+  
+  for (byte i = 0; i < LCTNumDevs; i++) {
+    if (changed & 1) {
+      next_update = i;      // toggled relay is the preferred next update
+      // break ;;  // precedence if more than 1 state changed
+    }
+    changed >>= 1 ;
+  }
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTSetStates exit"));
+  // AddLog(LOG_LEVEL_DEBUG_MORE);
+  return true;
+}
+
+// to be called as often as we can afford, e.g. once every main loop cycle
+boolean LCTLoopHandler(void)
+{
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTLoopHandler entry"));
+  // AddLog(LOG_LEVEL_DEBUG_MORE);
+
+  static unsigned long lastcall = 0 ; 
+  unsigned long delay;
+
+    if (fast_update_count > 0) {
+      delay = LCT_SWITCH_DELAY;
+      // fast_update_count-- ;
+    } else {
+        if (LCT_HOLD_DELAY == 0) {
+          return true;
+          // ------------------------
+        }      
+      delay = LCT_HOLD_DELAY ;
+    }
+
+    // overflow proof ... so I hope...
+    if ( (unsigned long)( millis() - lastcall) > delay ) {
+
+      // really do what's to be done
+      LCTRelayBoardSwitch(next_update, (boolean)(target_state >> next_update) & 1) ;
+
+      lastcall = millis();
+    
+      next_update++;
+      if ( next_update >= LCTNumDevs ) {
+        next_update = 0;
+      }
+
+      if (fast_update_count > 0) { 
+        fast_update_count-- ; 
+      }
+    }
+  
+  // snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: LCTLoopHandler exit"));
+  // AddLog(LOG_LEVEL_DEBUG_MORE);
+  return true;
+  
+}
+
+/*
 boolean LCTSetStates(power_t rpower)
 {
   uint8_t state;
@@ -63,6 +141,7 @@ boolean LCTSetStates(power_t rpower)
 
   return true;
 }
+*/
 
 boolean LCTRelayBoardSwitch(uint8_t id, boolean nc)
 {
@@ -74,24 +153,26 @@ boolean LCTRelayBoardSwitch(uint8_t id, boolean nc)
   SetSeriallog(LOG_LEVEL_NONE); // Important, if someone changes LOG_LEVEL to something nastier than NONE.
   SetSerialBaudrate(LCTBaudrate);
 
-  uint8_t LCTByteBegin    = LCTSeqBase[0];
-  uint8_t LCTByteDevID    = LCTSeqBase[1] + ((id & 0xff) + 1);
-  uint8_t LCTByteDevState = LCTSeqBase[2] + (uint8_t)nc;
-  uint8_t LCTByteEnd      = LCTSeqBase[3] + ((id & 0xff) + 3) - ((uint8_t)nc ? 1 : 2);
-  uint8_t LCTByteReset    = LCTSeqBase[4];
+  // const uint8_t LCTSeqBase[5]  = { 0xA0, 0x00, 0x00, 0xA0, 0x00 };
+  uint8_t LCTByteBegin    = 0xA0 ;
+  uint8_t LCTByteDevID    = (id & 0xff) + 1 ;
+  uint8_t LCTByteDevState = (uint8_t)nc;
+  uint8_t LCTByteEnd      = 0xA0 + ((id & 0xff) + 3) - ((uint8_t)nc ? 1 : 2);
+  uint8_t LCTByteReset    = 0x0A ;
 
-  char buffer[5] = {
-    LCTByteBegin,
-    LCTByteDevID,
-    LCTByteDevState,
-    LCTByteEnd,
-    LCTByteReset
-  };
 
-  SerialSendRaw(buffer);
+  Serial.write(LCTByteBegin)   ;
+  Serial.write(LCTByteDevID);
+  Serial.write(LCTByteDevState);
+  Serial.write(LCTByteEnd);
+  Serial.write(LCTByteReset);   
+  
+  snprintf_P(log_data, sizeof(log_data), 
+      PSTR( "LCT: [%06d] Sent state to relay %d (state: %d): 0x%02x, 0x%02x, 0x%02x, 0x%02x, 0x%02x"), 
+      millis(), id, nc ? 1 : 0, LCTByteBegin, LCTByteDevID, LCTByteDevState, LCTByteEnd, LCTByteReset);
+ AddLog(LOG_LEVEL_DEBUG);
 
-  snprintf_P(log_data, sizeof(log_data), PSTR( "LCT: Sent new serial state to relay %d (state: %d): 0x%02x, 0x%02x, 0x%02x, 0x%02x, 0x%02x"), id, nc ? 1 : 0, LCTByteBegin, LCTByteDevID, LCTByteDevState, LCTByteEnd, LCTByteReset);
-  AddLog(LOG_LEVEL_DEBUG);
+  delay(20);
 
   return true;
 }
@@ -161,6 +242,10 @@ boolean Xdrv20(byte function)
         break;
       case FUNC_SET_DEVICE_POWER:
         result = LCTSetRelay();
+        break;
+      // hook update handling function into main loop
+      case FUNC_LOOP:
+        result = LCTLoopHandler();
         break;
     }
   }
