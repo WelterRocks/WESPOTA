@@ -29,9 +29,10 @@
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
 #include "include/wespota_version.h"                 // WESPOTA version information
 #include "include/wespota.h"                         // Enumeration used in my_user_config.h
-#include "include/config/wespota_config.h"           // WESPOTA configuration
 #ifdef HAVE_ALTERNATE_CONFIG
-  #include "include/config/wespota_alternate_config.h"         // Configuration overrides wespota_config.h
+  #include "include/config/wespota_alternate_config.h" // Configuration overrides wespota_config.h
+#else
+  #include "include/config/wespota_config.h"           // WESPOTA main configuration
 #endif
 #include "include/wespota_post.h"                    // Configuration overrides for all previous includes
 #include "include/wespota_i18n.h"                           // Language support configured by my_user_config.h

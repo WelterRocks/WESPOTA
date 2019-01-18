@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef HAVE_ALTERNATE_CONFIG
 #ifndef _WESPOTA_CONFIG_H_
 #define _WESPOTA_CONFIG_H_
 
@@ -366,7 +367,11 @@
 #define USE_TUYA_DIMMER                          // Add support for Tuya Serial Dimmer
   #define TUYA_DIMMER_ID       0                 // Default dimmer Id
 #define USE_ARMTRONIX_DIMMERS                    // Add support for Armtronix Dimmers (+1k4 code)
-//#define USE_LC_TECH_RELAY                        // Add support for LC Technology relay boards
+#define USE_LC_TECH_RELAY                        // Add support for LC Technology relay boards
+  #define LCT_SWITCH_DELAY  40                      // min ms to wait between relay commands when toggled
+  #define LCT_FAST_REPEAT   2                       // how many times commands are repeated in fast mode
+  #define LCT_HOLD_DELAY    1000                     // min ms to wait between relay commands when unchanged
+
 #define USE_PS_16_DZ                             // Add support for PS-16-DZ Dimmer
 //#define USE_AZ7798                               // Add support for AZ-Instrument 7798 CO2 datalogger (+1k6 code)
 
@@ -434,3 +439,4 @@
 #endif
 
 #endif  // _WESPOTA_CONFIG_H_
+#endif  // HAVE_ALTERNATE_CONFIG
